@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
+<coverage line-rate="0.21176471" branch-rate="0" lines-covered="36" lines-valid="170" branches-covered="0" branches-valid="0" complexity="0" version="" timestamp="1693996145499">
+	<packages>
+		<package name="enricofoltran/simple-go-server" line-rate="0.21176471" branch-rate="0" complexity="0" line-count="170" line-hits="36">
+			<classes>
+				<class name="-" filename="gocCz.go" line-rate="0" branch-rate="0" complexity="0" line-count="22" line-hits="0">
+					<methods>
+						<method name="main7" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="10" hits="0"></line>
+								<line number="13" hits="0"></line>
+								<line number="16" hits="0"></line>
+								<line number="17" hits="0"></line>
+								<line number="20" hits="0"></line>
+								<line number="24" hits="0"></line>
+								<line number="25" hits="0"></line>
+								<line number="26" hits="0"></line>
+								<line number="27" hits="0"></line>
+								<line number="30" hits="0"></line>
+								<line number="31" hits="0"></line>
+								<line number="32" hits="0"></line>
+								<line number="33" hits="0"></line>
+								<line number="36" hits="0"></line>
+								<line number="37" hits="0"></line>
+								<line number="38" hits="0"></line>
+								<line number="39" hits="0"></line>
+								<line number="40" hits="0"></line>
+								<line number="43" hits="0"></line>
+								<line number="44" hits="0"></line>
+								<line number="45" hits="0"></line>
+								<line number="46" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="10" hits="0"></line>
+						<line number="13" hits="0"></line>
+						<line number="16" hits="0"></line>
+						<line number="17" hits="0"></line>
+						<line number="20" hits="0"></line>
+						<line number="24" hits="0"></line>
+						<line number="25" hits="0"></line>
+						<line number="26" hits="0"></line>
+						<line number="27" hits="0"></line>
+						<line number="30" hits="0"></line>
+						<line number="31" hits="0"></line>
+						<line number="32" hits="0"></line>
+						<line number="33" hits="0"></line>
+						<line number="36" hits="0"></line>
+						<line number="37" hits="0"></line>
+						<line number="38" hits="0"></line>
+						<line number="39" hits="0"></line>
+						<line number="40" hits="0"></line>
+						<line number="43" hits="0"></line>
+						<line number="44" hits="0"></line>
+						<line number="45" hits="0"></line>
+						<line number="46" hits="0"></line>
+					</lines>
+				</class>
+				<class name="-" filename="gocHtml.go" line-rate="0" branch-rate="0" complexity="0" line-count="10" line-hits="0">
+					<methods>
+						<method name="main5" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="12" hits="0"></line>
+								<line number="13" hits="0"></line>
+								<line number="14" hits="0"></line>
+								<line number="18" hits="0"></line>
+								<line number="19" hits="0"></line>
+								<line number="22" hits="0"></line>
+								<line number="23" hits="0"></line>
+								<line number="24" hits="0"></line>
+								<line number="25" hits="0"></line>
+								<line number="28" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="12" hits="0"></line>
+						<line number="13" hits="0"></line>
+						<line number="14" hits="0"></line>
+						<line number="18" hits="0"></line>
+						<line number="19" hits="0"></line>
+						<line number="22" hits="0"></line>
+						<line number="23" hits="0"></line>
+						<line number="24" hits="0"></line>
+						<line number="25" hits="0"></line>
+						<line number="28" hits="0"></line>
+					</lines>
+				</class>
+				<class name="-" filename="gocTest.go" line-rate="0" branch-rate="0" complexity="0" line-count="58" line-hits="0">
+					<methods>
+						<method name="main4" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="13" hits="0"></line>
+								<line number="14" hits="0"></line>
+								<line number="15" hits="0"></line>
+								<line number="16" hits="0"></line>
+								<line number="18" hits="0"></line>
+								<line number="21" hits="0"></line>
+								<line number="22" hits="0"></line>
+								<line number="23" hits="0"></line>
+								<line number="24" hits="0"></line>
+								<line number="25" hits="0"></line>
+								<line number="26" hits="0"></line>
+								<line number="30" hits="0"></line>
+								<line number="31" hits="0"></line>
+								<line number="32" hits="0"></line>
+								<line number="33" hits="0"></line>
+								<line number="37" hits="0"></line>
+								<line number="38" hits="0"></line>
+								<line number="39" hits="0"></line>
+								<line number="40" hits="0"></line>
+								<line number="44" hits="0"></line>
+								<line number="45" hits="0"></line>
+								<line number="46" hits="0"></line>
+								<line number="47" hits="0"></line>
+								<line number="50" hits="0"></line>
+							</lines>
+						</method>
+						<method name="getCurrentBranch" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="54" hits="0"></line>
+								<line number="55" hits="0"></line>
+								<line number="56" hits="0"></line>
+								<line number="57" hits="0"></line>
+								<line number="59" hits="0"></line>
+								<line number="60" hits="0"></line>
+							</lines>
+						</method>
+						<method name="runTestsAndGenerateCoverage" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="65" hits="0"></line>
+								<line number="66" hits="0"></line>
+								<line number="67" hits="0"></line>
+								<line number="68" hits="0"></line>
+								<line number="70" hits="0"></line>
+							</lines>
+						</method>
+						<method name="compareCoverageFiles" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="75" hits="0"></line>
+								<line number="76" hits="0"></line>
+								<line number="77" hits="0"></line>
+								<line number="78" hits="0"></line>
+								<line number="80" hits="0"></line>
+								<line number="81" hits="0"></line>
+								<line number="82" hits="0"></line>
+								<line number="83" hits="0"></line>
+								<line number="89" hits="0"></line>
+							</lines>
+						</method>
+						<method name="compareCoverage" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="94" hits="0"></line>
+								<line number="97" hits="0"></line>
+								<line number="98" hits="0"></line>
+								<line number="102" hits="0"></line>
+								<line number="103" hits="0"></line>
+								<line number="106" hits="0"></line>
+								<line number="107" hits="0"></line>
+								<line number="108" hits="0"></line>
+								<line number="110" hits="0"></line>
+								<line number="115" hits="0"></line>
+								<line number="116" hits="0"></line>
+							</lines>
+						</method>
+						<method name="main3" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="121" hits="0"></line>
+								<line number="122" hits="0"></line>
+								<line number="125" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="13" hits="0"></line>
+						<line number="14" hits="0"></line>
+						<line number="15" hits="0"></line>
+						<line number="16" hits="0"></line>
+						<line number="18" hits="0"></line>
+						<line number="21" hits="0"></line>
+						<line number="22" hits="0"></line>
+						<line number="23" hits="0"></line>
+						<line number="24" hits="0"></line>
+						<line number="25" hits="0"></line>
+						<line number="26" hits="0"></line>
+						<line number="30" hits="0"></line>
+						<line number="31" hits="0"></line>
+						<line number="32" hits="0"></line>
+						<line number="33" hits="0"></line>
+						<line number="37" hits="0"></line>
+						<line number="38" hits="0"></line>
+						<line number="39" hits="0"></line>
+						<line number="40" hits="0"></line>
+						<line number="44" hits="0"></line>
+						<line number="45" hits="0"></line>
+						<line number="46" hits="0"></line>
+						<line number="47" hits="0"></line>
+						<line number="50" hits="0"></line>
+						<line number="54" hits="0"></line>
+						<line number="55" hits="0"></line>
+						<line number="56" hits="0"></line>
+						<line number="57" hits="0"></line>
+						<line number="59" hits="0"></line>
+						<line number="60" hits="0"></line>
+						<line number="65" hits="0"></line>
+						<line number="66" hits="0"></line>
+						<line number="67" hits="0"></line>
+						<line number="68" hits="0"></line>
+						<line number="70" hits="0"></line>
+						<line number="75" hits="0"></line>
+						<line number="76" hits="0"></line>
+						<line number="77" hits="0"></line>
+						<line number="78" hits="0"></line>
+						<line number="80" hits="0"></line>
+						<line number="81" hits="0"></line>
+						<line number="82" hits="0"></line>
+						<line number="83" hits="0"></line>
+						<line number="89" hits="0"></line>
+						<line number="94" hits="0"></line>
+						<line number="97" hits="0"></line>
+						<line number="98" hits="0"></line>
+						<line number="102" hits="0"></line>
+						<line number="103" hits="0"></line>
+						<line number="106" hits="0"></line>
+						<line number="107" hits="0"></line>
+						<line number="108" hits="0"></line>
+						<line number="110" hits="0"></line>
+						<line number="115" hits="0"></line>
+						<line number="116" hits="0"></line>
+						<line number="121" hits="0"></line>
+						<line number="122" hits="0"></line>
+						<line number="125" hits="0"></line>
+					</lines>
+				</class>
+				<class name="-" filename="main.go" line-rate="0.45" branch-rate="0" complexity="0" line-count="80" line-hits="36">
+					<methods>
+						<method name="main" signature="" line-rate="0.73170733" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="32" hits="1"></line>
+								<line number="33" hits="1"></line>
+								<line number="35" hits="1"></line>
+								<line number="37" hits="1"></line>
+								<line number="38" hits="1"></line>
+								<line number="39" hits="1"></line>
+								<line number="40" hits="1"></line>
+								<line number="41" hits="1"></line>
+								<line number="43" hits="1"></line>
+								<line number="45" hits="1"></line>
+								<line number="46" hits="1"></line>
+								<line number="47" hits="1"></line>
+								<line number="49" hits="1"></line>
+								<line number="52" hits="1"></line>
+								<line number="55" hits="1"></line>
+								<line number="56" hits="1"></line>
+								<line number="59" hits="0"></line>
+								<line number="63" hits="1"></line>
+								<line number="64" hits="0"></line>
+								<line number="67" hits="1"></line>
+								<line number="71" hits="1"></line>
+								<line number="72" hits="1"></line>
+								<line number="75" hits="1"></line>
+								<line number="79" hits="1"></line>
+								<line number="80" hits="0"></line>
+								<line number="83" hits="0"></line>
+								<line number="87" hits="1"></line>
+								<line number="88" hits="1"></line>
+								<line number="91" hits="0"></line>
+								<line number="94" hits="1"></line>
+								<line number="98" hits="1"></line>
+								<line number="107" hits="1"></line>
+								<line number="108" hits="1"></line>
+								<line number="109" hits="1"></line>
+								<line number="111" hits="1"></line>
+								<line number="126" hits="0"></line>
+								<line number="127" hits="0"></line>
+								<line number="128" hits="0"></line>
+								<line number="129" hits="0"></line>
+								<line number="132" hits="0"></line>
+								<line number="133" hits="0"></line>
+							</lines>
+						</method>
+						<method name="@94:19" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="95" hits="0"></line>
+							</lines>
+						</method>
+						<method name="@111:5" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="112" hits="0"></line>
+								<line number="113" hits="0"></line>
+								<line number="114" hits="0"></line>
+								<line number="116" hits="0"></line>
+								<line number="117" hits="0"></line>
+								<line number="119" hits="0"></line>
+								<line number="120" hits="0"></line>
+								<line number="121" hits="0"></line>
+								<line number="123" hits="0"></line>
+							</lines>
+						</method>
+						<method name="index" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="137" hits="0"></line>
+							</lines>
+						</method>
+						<method name="@137:26" signature="" line-rate="0.2857143" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="138" hits="0"></line>
+								<line number="139" hits="0"></line>
+								<line number="140" hits="0"></line>
+								<line number="142" hits="0"></line>
+								<line number="143" hits="1"></line>
+								<line number="144" hits="1"></line>
+								<line number="145" hits="0"></line>
+							</lines>
+						</method>
+						<method name="healthz" signature="" line-rate="1" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="150" hits="1"></line>
+							</lines>
+						</method>
+						<method name="@150:26" signature="" line-rate="0.5" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="151" hits="1"></line>
+								<line number="152" hits="0"></line>
+								<line number="153" hits="0"></line>
+								<line number="155" hits="1"></line>
+							</lines>
+						</method>
+						<method name="logging" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="160" hits="0"></line>
+							</lines>
+						</method>
+						<method name="@160:9" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="161" hits="0"></line>
+							</lines>
+						</method>
+						<method name="@161:27" signature="" line-rate="0.5" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="162" hits="0"></line>
+								<line number="169" hits="1"></line>
+							</lines>
+						</method>
+						<method name="@162:10" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="163" hits="0"></line>
+								<line number="164" hits="0"></line>
+								<line number="165" hits="0"></line>
+								<line number="167" hits="0"></line>
+							</lines>
+						</method>
+						<method name="tracing" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="175" hits="0"></line>
+							</lines>
+						</method>
+						<method name="@175:9" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="176" hits="0"></line>
+							</lines>
+						</method>
+						<method name="@176:27" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="177" hits="0"></line>
+								<line number="178" hits="0"></line>
+								<line number="179" hits="0"></line>
+								<line number="181" hits="0"></line>
+								<line number="182" hits="0"></line>
+								<line number="183" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="32" hits="1"></line>
+						<line number="33" hits="1"></line>
+						<line number="35" hits="1"></line>
+						<line number="37" hits="1"></line>
+						<line number="38" hits="1"></line>
+						<line number="39" hits="1"></line>
+						<line number="40" hits="1"></line>
+						<line number="41" hits="1"></line>
+						<line number="43" hits="1"></line>
+						<line number="45" hits="1"></line>
+						<line number="46" hits="1"></line>
+						<line number="47" hits="1"></line>
+						<line number="49" hits="1"></line>
+						<line number="52" hits="1"></line>
+						<line number="55" hits="1"></line>
+						<line number="56" hits="1"></line>
+						<line number="59" hits="0"></line>
+						<line number="63" hits="1"></line>
+						<line number="64" hits="0"></line>
+						<line number="67" hits="1"></line>
+						<line number="71" hits="1"></line>
+						<line number="72" hits="1"></line>
+						<line number="75" hits="1"></line>
+						<line number="79" hits="1"></line>
+						<line number="80" hits="0"></line>
+						<line number="83" hits="0"></line>
+						<line number="87" hits="1"></line>
+						<line number="88" hits="1"></line>
+						<line number="91" hits="0"></line>
+						<line number="94" hits="1"></line>
+						<line number="98" hits="1"></line>
+						<line number="107" hits="1"></line>
+						<line number="108" hits="1"></line>
+						<line number="109" hits="1"></line>
+						<line number="111" hits="1"></line>
+						<line number="126" hits="0"></line>
+						<line number="127" hits="0"></line>
+						<line number="128" hits="0"></line>
+						<line number="129" hits="0"></line>
+						<line number="132" hits="0"></line>
+						<line number="133" hits="0"></line>
+						<line number="95" hits="0"></line>
+						<line number="112" hits="0"></line>
+						<line number="113" hits="0"></line>
+						<line number="114" hits="0"></line>
+						<line number="116" hits="0"></line>
+						<line number="117" hits="0"></line>
+						<line number="119" hits="0"></line>
+						<line number="120" hits="0"></line>
+						<line number="121" hits="0"></line>
+						<line number="123" hits="0"></line>
+						<line number="137" hits="0"></line>
+						<line number="138" hits="0"></line>
+						<line number="139" hits="0"></line>
+						<line number="140" hits="0"></line>
+						<line number="142" hits="0"></line>
+						<line number="143" hits="1"></line>
+						<line number="144" hits="1"></line>
+						<line number="145" hits="0"></line>
+						<line number="150" hits="1"></line>
+						<line number="151" hits="1"></line>
+						<line number="152" hits="0"></line>
+						<line number="153" hits="0"></line>
+						<line number="155" hits="1"></line>
+						<line number="160" hits="0"></line>
+						<line number="161" hits="0"></line>
+						<line number="162" hits="0"></line>
+						<line number="169" hits="1"></line>
+						<line number="163" hits="0"></line>
+						<line number="164" hits="0"></line>
+						<line number="165" hits="0"></line>
+						<line number="167" hits="0"></line>
+						<line number="175" hits="0"></line>
+						<line number="176" hits="0"></line>
+						<line number="177" hits="0"></line>
+						<line number="178" hits="0"></line>
+						<line number="179" hits="0"></line>
+						<line number="181" hits="0"></line>
+						<line number="182" hits="0"></line>
+						<line number="183" hits="0"></line>
+					</lines>
+				</class>
+			</classes>
+		</package>
+	</packages>
+	<sources>
+		<source>/Users/klook/GolandProjects/simple-go-server</source>
+	</sources>
+</coverage>

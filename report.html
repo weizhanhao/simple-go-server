@@ -1,0 +1,597 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+        <title>Diff Coverage</title>
+        <style>
+            .src-snippet { margin-top: 2em; }
+            .src-name { font-weight: bold; }
+            .snippets {
+                border-top: 1px solid #bdbdbd;
+                border-bottom: 1px solid #bdbdbd;
+            }
+            pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.hll { background-color: #ffcccc }
+.c { color: #3D7B7B; font-style: italic } /* Comment */
+.err { border: 1px solid #FF0000 } /* Error */
+.k { color: #008000; font-weight: bold } /* Keyword */
+.o { color: #666666 } /* Operator */
+.ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.cp { color: #9C6500 } /* Comment.Preproc */
+.cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.gd { color: #A00000 } /* Generic.Deleted */
+.ge { font-style: italic } /* Generic.Emph */
+.ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.gr { color: #E40000 } /* Generic.Error */
+.gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.gi { color: #008400 } /* Generic.Inserted */
+.go { color: #717171 } /* Generic.Output */
+.gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.gs { font-weight: bold } /* Generic.Strong */
+.gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.gt { color: #0044DD } /* Generic.Traceback */
+.kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.kp { color: #008000 } /* Keyword.Pseudo */
+.kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.kt { color: #B00040 } /* Keyword.Type */
+.m { color: #666666 } /* Literal.Number */
+.s { color: #BA2121 } /* Literal.String */
+.na { color: #687822 } /* Name.Attribute */
+.nb { color: #008000 } /* Name.Builtin */
+.nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.no { color: #880000 } /* Name.Constant */
+.nd { color: #AA22FF } /* Name.Decorator */
+.ni { color: #717171; font-weight: bold } /* Name.Entity */
+.ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.nf { color: #0000FF } /* Name.Function */
+.nl { color: #767600 } /* Name.Label */
+.nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.nt { color: #008000; font-weight: bold } /* Name.Tag */
+.nv { color: #19177C } /* Name.Variable */
+.ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.w { color: #bbbbbb } /* Text.Whitespace */
+.mb { color: #666666 } /* Literal.Number.Bin */
+.mf { color: #666666 } /* Literal.Number.Float */
+.mh { color: #666666 } /* Literal.Number.Hex */
+.mi { color: #666666 } /* Literal.Number.Integer */
+.mo { color: #666666 } /* Literal.Number.Oct */
+.sa { color: #BA2121 } /* Literal.String.Affix */
+.sb { color: #BA2121 } /* Literal.String.Backtick */
+.sc { color: #BA2121 } /* Literal.String.Char */
+.dl { color: #BA2121 } /* Literal.String.Delimiter */
+.sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.s2 { color: #BA2121 } /* Literal.String.Double */
+.se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.sh { color: #BA2121 } /* Literal.String.Heredoc */
+.si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.sx { color: #008000 } /* Literal.String.Other */
+.sr { color: #A45A77 } /* Literal.String.Regex */
+.s1 { color: #BA2121 } /* Literal.String.Single */
+.ss { color: #19177C } /* Literal.String.Symbol */
+.bp { color: #008000 } /* Name.Builtin.Pseudo */
+.fm { color: #0000FF } /* Name.Function.Magic */
+.vc { color: #19177C } /* Name.Variable.Class */
+.vg { color: #19177C } /* Name.Variable.Global */
+.vi { color: #19177C } /* Name.Variable.Instance */
+.vm { color: #19177C } /* Name.Variable.Magic */
+.il { color: #666666 } /* Literal.Number.Integer.Long */
+        </style>
+    </head>
+    <body>
+        <h1>Diff Coverage</h1>
+        <p>Diff: master...HEAD, staged and unstaged changes</p>
+        <ul>
+            <li><b>Total</b>: 117 lines</li>
+            <li><b>Missing</b>: 101 lines</li>
+            <li><b>Coverage</b>: 13%</li>
+        </ul>
+        <table border="1">
+            <tr>
+                <th>Source File</th>
+                <th>Diff Coverage (%)</th>
+                <th>Missing Lines</th>
+            </tr>
+            <tr>
+                <td>gocCz.go</td>
+                <td>0.0%</td>
+                <td>10,13,16-17,20,24-27,30-33,36-40,43-46</td>
+            </tr>
+            <tr>
+                <td>gocHtml.go</td>
+                <td>0.0%</td>
+                <td>12-14,18-19,22-25,28</td>
+            </tr>
+            <tr>
+                <td>gocTest.go</td>
+                <td>0.0%</td>
+                <td>13-16,18,21-26,30-33,37-40,44-47,50,54-57,59-60,65-68,70,75-78,80-83,89,94,97-98,102-103,106-108,110,115-116,121-122,125</td>
+            </tr>
+            <tr>
+                <td>main.go</td>
+                <td>59.3%</td>
+                <td>59,64-66,82-85,89-91</td>
+            </tr>
+        </table>
+        <div class="src-snippet">
+            <div class="src-name">gocCz.go</div>
+            <div class="snippets">
+            <div class="snippet"><table class="snippettable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span></pre></div></td><td class="code"><div><pre><span></span><a id="gocCz.go-6" name="gocCz.go-6"></a><span class="w">	</span><span class="s">&quot;time&quot;</span>
+<a id="gocCz.go-7" name="gocCz.go-7"></a><span class="p">)</span>
+<a id="gocCz.go-8" name="gocCz.go-8"></a>
+<a id="gocCz.go-9" name="gocCz.go-9"></a><span class="kd">func</span><span class="w"> </span><span class="nx">main7</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="gocCz.go-10" name="gocCz.go-10"></a><span class="hll"><span class="w">	</span><span class="nx">rand</span><span class="p">.</span><span class="nx">Seed</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Now</span><span class="p">().</span><span class="nx">UnixNano</span><span class="p">())</span>
+</span><a id="gocCz.go-11" name="gocCz.go-11"></a>
+<a id="gocCz.go-12" name="gocCz.go-12"></a><span class="w">	</span><span class="c1">// 生成一个0到99之间的随机数</span>
+<a id="gocCz.go-13" name="gocCz.go-13"></a><span class="hll"><span class="w">	</span><span class="nx">randomNum</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">rand</span><span class="p">.</span><span class="nx">Intn</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</span><a id="gocCz.go-14" name="gocCz.go-14"></a>
+<a id="gocCz.go-15" name="gocCz.go-15"></a><span class="w">	</span><span class="c1">// 模块1的执行概率为70%</span>
+<a id="gocCz.go-16" name="gocCz.go-16"></a><span class="hll"><span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="nx">randomNum</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="mi">70</span><span class="w"> </span><span class="p">{</span>
+</span><a id="gocCz.go-17" name="gocCz.go-17"></a><span class="hll"><span class="w">		</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;进入模块1&quot;</span><span class="p">)</span>
+</span><a id="gocCz.go-18" name="gocCz.go-18"></a><span class="w">	</span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="gocCz.go-19" name="gocCz.go-19"></a><span class="w">		</span><span class="c1">// 模块2的执行概率为30%</span>
+<a id="gocCz.go-20" name="gocCz.go-20"></a><span class="hll"><span class="w">		</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;进入模块2&quot;</span><span class="p">)</span>
+</span><a id="gocCz.go-21" name="gocCz.go-21"></a><span class="w">	</span><span class="p">}</span>
+<a id="gocCz.go-22" name="gocCz.go-22"></a>
+<a id="gocCz.go-23" name="gocCz.go-23"></a><span class="w">	</span><span class="c1">// 模块3的执行概率为50%</span>
+<a id="gocCz.go-24" name="gocCz.go-24"></a><span class="hll"><span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="nx">randomNum</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="mi">50</span><span class="w"> </span><span class="p">{</span>
+</span><a id="gocCz.go-25" name="gocCz.go-25"></a><span class="hll"><span class="w">		</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;进入模块3&quot;</span><span class="p">)</span>
+</span><a id="gocCz.go-26" name="gocCz.go-26"></a><span class="hll"><span class="w">		</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;进入模块3&quot;</span><span class="p">)</span>
+</span><a id="gocCz.go-27" name="gocCz.go-27"></a><span class="hll"><span class="w">		</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;进入模块3&quot;</span><span class="p">)</span>
+</span><a id="gocCz.go-28" name="gocCz.go-28"></a><span class="w">	</span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="gocCz.go-29" name="gocCz.go-29"></a><span class="w">		</span><span class="c1">// 模块4的执行概率为50%</span>
+<a id="gocCz.go-30" name="gocCz.go-30"></a><span class="hll"><span class="w">		</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;进入模块4&quot;</span><span class="p">)</span>
+</span><a id="gocCz.go-31" name="gocCz.go-31"></a><span class="hll"><span class="w">		</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;进入模块4&quot;</span><span class="p">)</span>
+</span><a id="gocCz.go-32" name="gocCz.go-32"></a><span class="hll"><span class="w">		</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;进入模块4&quot;</span><span class="p">)</span>
+</span><a id="gocCz.go-33" name="gocCz.go-33"></a><span class="hll"><span class="w">		</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;进入模块4&quot;</span><span class="p">)</span>
+</span><a id="gocCz.go-34" name="gocCz.go-34"></a><span class="w">	</span><span class="p">}</span>
+<a id="gocCz.go-35" name="gocCz.go-35"></a><span class="w">	</span><span class="c1">// 模块5的执行概率为80%</span>
+<a id="gocCz.go-36" name="gocCz.go-36"></a><span class="hll"><span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="nx">randomNum</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="mi">80</span><span class="w"> </span><span class="p">{</span>
+</span><a id="gocCz.go-37" name="gocCz.go-37"></a><span class="hll"><span class="w">		</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;进入模块5&quot;</span><span class="p">)</span>
+</span><a id="gocCz.go-38" name="gocCz.go-38"></a><span class="hll"><span class="w">		</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;进入模块5&quot;</span><span class="p">)</span>
+</span><a id="gocCz.go-39" name="gocCz.go-39"></a><span class="hll"><span class="w">		</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;进入模块5&quot;</span><span class="p">)</span>
+</span><a id="gocCz.go-40" name="gocCz.go-40"></a><span class="hll"><span class="w">		</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;进入模块5&quot;</span><span class="p">)</span>
+</span><a id="gocCz.go-41" name="gocCz.go-41"></a><span class="w">	</span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="gocCz.go-42" name="gocCz.go-42"></a><span class="w">		</span><span class="c1">// 模块6的执行概率为20%</span>
+<a id="gocCz.go-43" name="gocCz.go-43"></a><span class="hll"><span class="w">		</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;进入模块6&quot;</span><span class="p">)</span>
+</span><a id="gocCz.go-44" name="gocCz.go-44"></a><span class="hll"><span class="w">		</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;进入模块6&quot;</span><span class="p">)</span>
+</span><a id="gocCz.go-45" name="gocCz.go-45"></a><span class="hll"><span class="w">		</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;进入模块6&quot;</span><span class="p">)</span>
+</span><a id="gocCz.go-46" name="gocCz.go-46"></a><span class="hll"><span class="w">		</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;进入模块6&quot;</span><span class="p">)</span>
+</span><a id="gocCz.go-47" name="gocCz.go-47"></a><span class="w">	</span><span class="p">}</span>
+<a id="gocCz.go-48" name="gocCz.go-48"></a><span class="p">}</span>
+</pre></div></td></tr></table></div>
+
+            </div>
+        </div>
+        <div class="src-snippet">
+            <div class="src-name">gocHtml.go</div>
+            <div class="snippets">
+            <div class="snippet"><table class="snippettable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><a id="gocHtml.go-8" name="gocHtml.go-8"></a><span class="p">)</span>
+<a id="gocHtml.go-9" name="gocHtml.go-9"></a>
+<a id="gocHtml.go-10" name="gocHtml.go-10"></a><span class="kd">func</span><span class="w"> </span><span class="nx">main5</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="gocHtml.go-11" name="gocHtml.go-11"></a><span class="w">	</span><span class="c1">// 获取当前工作目录</span>
+<a id="gocHtml.go-12" name="gocHtml.go-12"></a><span class="hll"><span class="w">	</span><span class="nx">wd</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">os</span><span class="p">.</span><span class="nx">Getwd</span><span class="p">()</span>
+</span><a id="gocHtml.go-13" name="gocHtml.go-13"></a><span class="hll"><span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+</span><a id="gocHtml.go-14" name="gocHtml.go-14"></a><span class="hll"><span class="w">		</span><span class="nx">log</span><span class="p">.</span><span class="nx">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+</span><a id="gocHtml.go-15" name="gocHtml.go-15"></a><span class="w">	</span><span class="p">}</span>
+<a id="gocHtml.go-16" name="gocHtml.go-16"></a>
+<a id="gocHtml.go-17" name="gocHtml.go-17"></a><span class="w">	</span><span class="c1">// 定义输入和输出文件名</span>
+<a id="gocHtml.go-18" name="gocHtml.go-18"></a><span class="hll"><span class="w">	</span><span class="nx">inFile</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">filepath</span><span class="p">.</span><span class="nx">Join</span><span class="p">(</span><span class="nx">wd</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;coveragenew.out&quot;</span><span class="p">)</span>
+</span><a id="gocHtml.go-19" name="gocHtml.go-19"></a><span class="hll"><span class="w">	</span><span class="nx">outFile</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">filepath</span><span class="p">.</span><span class="nx">Join</span><span class="p">(</span><span class="nx">wd</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;coveragenew.html&quot;</span><span class="p">)</span>
+</span><a id="gocHtml.go-20" name="gocHtml.go-20"></a>
+<a id="gocHtml.go-21" name="gocHtml.go-21"></a><span class="w">	</span><span class="c1">// 执行转换命令</span>
+<a id="gocHtml.go-22" name="gocHtml.go-22"></a><span class="hll"><span class="w">	</span><span class="nx">cmd</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">exec</span><span class="p">.</span><span class="nx">Command</span><span class="p">(</span><span class="s">&quot;go&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;tool&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;cover&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;-html=&quot;</span><span class="o">+</span><span class="nx">inFile</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;-o=&quot;</span><span class="o">+</span><span class="nx">outFile</span><span class="p">)</span>
+</span><a id="gocHtml.go-23" name="gocHtml.go-23"></a><span class="hll"><span class="w">	</span><span class="nx">err</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">cmd</span><span class="p">.</span><span class="nx">Run</span><span class="p">()</span>
+</span><a id="gocHtml.go-24" name="gocHtml.go-24"></a><span class="hll"><span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+</span><a id="gocHtml.go-25" name="gocHtml.go-25"></a><span class="hll"><span class="w">		</span><span class="nx">log</span><span class="p">.</span><span class="nx">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+</span><a id="gocHtml.go-26" name="gocHtml.go-26"></a><span class="w">	</span><span class="p">}</span>
+<a id="gocHtml.go-27" name="gocHtml.go-27"></a>
+<a id="gocHtml.go-28" name="gocHtml.go-28"></a><span class="hll"><span class="w">	</span><span class="nx">log</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;转换完成！已生成文件：%s\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">outFile</span><span class="p">)</span>
+</span><a id="gocHtml.go-29" name="gocHtml.go-29"></a><span class="p">}</span>
+</pre></div></td></tr></table></div>
+
+            </div>
+        </div>
+        <div class="src-snippet">
+            <div class="src-name">gocTest.go</div>
+            <div class="snippets">
+            <div class="snippet"><table class="snippettable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span></pre></div></td><td class="code"><div><pre><span></span><a id="gocTest.go-9" name="gocTest.go-9"></a><span class="p">)</span>
+<a id="gocTest.go-10" name="gocTest.go-10"></a>
+<a id="gocTest.go-11" name="gocTest.go-11"></a><span class="kd">func</span><span class="w"> </span><span class="nx">main4</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="gocTest.go-12" name="gocTest.go-12"></a><span class="w">	</span><span class="c1">// 获取当前分支和目标分支</span>
+<a id="gocTest.go-13" name="gocTest.go-13"></a><span class="hll"><span class="w">	</span><span class="nx">currentBranch</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">getCurrentBranch</span><span class="p">()</span>
+</span><a id="gocTest.go-14" name="gocTest.go-14"></a><span class="hll"><span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+</span><a id="gocTest.go-15" name="gocTest.go-15"></a><span class="hll"><span class="w">		</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Failed to get current branch:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+</span><a id="gocTest.go-16" name="gocTest.go-16"></a><span class="hll"><span class="w">		</span><span class="nx">os</span><span class="p">.</span><span class="nx">Exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><a id="gocTest.go-17" name="gocTest.go-17"></a><span class="w">	</span><span class="p">}</span>
+<a id="gocTest.go-18" name="gocTest.go-18"></a><span class="hll"><span class="w">	</span><span class="nx">targetBranch</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">&quot;master&quot;</span><span class="w"> </span><span class="c1">// 设置目标分支</span>
+</span><a id="gocTest.go-19" name="gocTest.go-19"></a>
+<a id="gocTest.go-20" name="gocTest.go-20"></a><span class="w">	</span><span class="c1">// 获取当前分支和目标分支之间的代码差异</span>
+<a id="gocTest.go-21" name="gocTest.go-21"></a><span class="hll"><span class="w">	</span><span class="nx">diffCmd</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">exec</span><span class="p">.</span><span class="nx">Command</span><span class="p">(</span><span class="s">&quot;git&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;diff&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;--name-only&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">targetBranch</span><span class="p">)</span>
+</span><a id="gocTest.go-22" name="gocTest.go-22"></a><span class="hll"><span class="w">	</span><span class="nx">diffOutput</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">diffCmd</span><span class="p">.</span><span class="nx">Output</span><span class="p">()</span>
+</span><a id="gocTest.go-23" name="gocTest.go-23"></a><span class="hll"><span class="w">	</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">diffOutput</span><span class="p">)</span>
+</span><a id="gocTest.go-24" name="gocTest.go-24"></a><span class="hll"><span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+</span><a id="gocTest.go-25" name="gocTest.go-25"></a><span class="hll"><span class="w">		</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Failed to get diff:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+</span><a id="gocTest.go-26" name="gocTest.go-26"></a><span class="hll"><span class="w">		</span><span class="nx">os</span><span class="p">.</span><span class="nx">Exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><a id="gocTest.go-27" name="gocTest.go-27"></a><span class="w">	</span><span class="p">}</span>
+<a id="gocTest.go-28" name="gocTest.go-28"></a>
+<a id="gocTest.go-29" name="gocTest.go-29"></a><span class="w">	</span><span class="c1">// 运行当前分支的测试并生成测试覆盖率文件</span>
+<a id="gocTest.go-30" name="gocTest.go-30"></a><span class="hll"><span class="w">	</span><span class="nx">err</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">runTestsAndGenerateCoverage</span><span class="p">(</span><span class="nx">currentBranch</span><span class="p">)</span>
+</span><a id="gocTest.go-31" name="gocTest.go-31"></a><span class="hll"><span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+</span><a id="gocTest.go-32" name="gocTest.go-32"></a><span class="hll"><span class="w">		</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Failed to generate coverage for current branch:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+</span><a id="gocTest.go-33" name="gocTest.go-33"></a><span class="hll"><span class="w">		</span><span class="nx">os</span><span class="p">.</span><span class="nx">Exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><a id="gocTest.go-34" name="gocTest.go-34"></a><span class="w">	</span><span class="p">}</span>
+<a id="gocTest.go-35" name="gocTest.go-35"></a>
+<a id="gocTest.go-36" name="gocTest.go-36"></a><span class="w">	</span><span class="c1">// 运行目标分支的测试并生成测试覆盖率文件</span>
+<a id="gocTest.go-37" name="gocTest.go-37"></a><span class="hll"><span class="w">	</span><span class="nx">err</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">runTestsAndGenerateCoverage</span><span class="p">(</span><span class="nx">targetBranch</span><span class="p">)</span>
+</span><a id="gocTest.go-38" name="gocTest.go-38"></a><span class="hll"><span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+</span><a id="gocTest.go-39" name="gocTest.go-39"></a><span class="hll"><span class="w">		</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Failed to generate coverage for target branch:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+</span><a id="gocTest.go-40" name="gocTest.go-40"></a><span class="hll"><span class="w">		</span><span class="nx">os</span><span class="p">.</span><span class="nx">Exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><a id="gocTest.go-41" name="gocTest.go-41"></a><span class="w">	</span><span class="p">}</span>
+<a id="gocTest.go-42" name="gocTest.go-42"></a>
+<a id="gocTest.go-43" name="gocTest.go-43"></a><span class="w">	</span><span class="c1">// 对比两个覆盖率文件</span>
+<a id="gocTest.go-44" name="gocTest.go-44"></a><span class="hll"><span class="w">	</span><span class="nx">err</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">compareCoverageFiles</span><span class="p">(</span><span class="nx">currentBranch</span><span class="p">,</span><span class="w"> </span><span class="nx">targetBranch</span><span class="p">)</span>
+</span><a id="gocTest.go-45" name="gocTest.go-45"></a><span class="hll"><span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+</span><a id="gocTest.go-46" name="gocTest.go-46"></a><span class="hll"><span class="w">		</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Failed to compare coverage files:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+</span><a id="gocTest.go-47" name="gocTest.go-47"></a><span class="hll"><span class="w">		</span><span class="nx">os</span><span class="p">.</span><span class="nx">Exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><a id="gocTest.go-48" name="gocTest.go-48"></a><span class="w">	</span><span class="p">}</span>
+<a id="gocTest.go-49" name="gocTest.go-49"></a>
+<a id="gocTest.go-50" name="gocTest.go-50"></a><span class="hll"><span class="w">	</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Coverage comparison generated.&quot;</span><span class="p">)</span>
+</span><a id="gocTest.go-51" name="gocTest.go-51"></a><span class="p">}</span>
+<a id="gocTest.go-52" name="gocTest.go-52"></a>
+<a id="gocTest.go-53" name="gocTest.go-53"></a><span class="kd">func</span><span class="w"> </span><span class="nx">getCurrentBranch</span><span class="p">()</span><span class="w"> </span><span class="p">(</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="gocTest.go-54" name="gocTest.go-54"></a><span class="hll"><span class="w">	</span><span class="nx">cmd</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">exec</span><span class="p">.</span><span class="nx">Command</span><span class="p">(</span><span class="s">&quot;git&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;symbolic-ref&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;--short&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;HEAD&quot;</span><span class="p">)</span>
+</span><a id="gocTest.go-55" name="gocTest.go-55"></a><span class="hll"><span class="w">	</span><span class="nx">output</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">cmd</span><span class="p">.</span><span class="nx">Output</span><span class="p">()</span>
+</span><a id="gocTest.go-56" name="gocTest.go-56"></a><span class="hll"><span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+</span><a id="gocTest.go-57" name="gocTest.go-57"></a><span class="hll"><span class="w">		</span><span class="k">return</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span>
+</span><a id="gocTest.go-58" name="gocTest.go-58"></a><span class="w">	</span><span class="p">}</span>
+<a id="gocTest.go-59" name="gocTest.go-59"></a><span class="hll"><span class="w">	</span><span class="nx">branch</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">strings</span><span class="p">.</span><span class="nx">TrimSpace</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">output</span><span class="p">))</span>
+</span><a id="gocTest.go-60" name="gocTest.go-60"></a><span class="hll"><span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="nx">branch</span><span class="p">,</span><span class="w"> </span><span class="kc">nil</span>
+</span><a id="gocTest.go-61" name="gocTest.go-61"></a><span class="p">}</span>
+<a id="gocTest.go-62" name="gocTest.go-62"></a>
+<a id="gocTest.go-63" name="gocTest.go-63"></a><span class="kd">func</span><span class="w"> </span><span class="nx">runTestsAndGenerateCoverage</span><span class="p">(</span><span class="nx">branch</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="kt">error</span><span class="w"> </span><span class="p">{</span>
+<a id="gocTest.go-64" name="gocTest.go-64"></a><span class="w">	</span><span class="c1">// 运行测试并生成测试覆盖率文件</span>
+<a id="gocTest.go-65" name="gocTest.go-65"></a><span class="hll"><span class="w">	</span><span class="nx">cmd</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">exec</span><span class="p">.</span><span class="nx">Command</span><span class="p">(</span><span class="s">&quot;go&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;test&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;-coverprofile=coverage_&quot;</span><span class="o">+</span><span class="nx">branch</span><span class="o">+</span><span class="s">&quot;.out&quot;</span><span class="p">)</span>
+</span><a id="gocTest.go-66" name="gocTest.go-66"></a><span class="hll"><span class="w">	</span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">cmd</span><span class="p">.</span><span class="nx">Run</span><span class="p">()</span>
+</span><a id="gocTest.go-67" name="gocTest.go-67"></a><span class="hll"><span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+</span><a id="gocTest.go-68" name="gocTest.go-68"></a><span class="hll"><span class="w">		</span><span class="k">return</span><span class="w"> </span><span class="nx">err</span>
+</span><a id="gocTest.go-69" name="gocTest.go-69"></a><span class="w">	</span><span class="p">}</span>
+<a id="gocTest.go-70" name="gocTest.go-70"></a><span class="hll"><span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="kc">nil</span>
+</span><a id="gocTest.go-71" name="gocTest.go-71"></a><span class="p">}</span>
+<a id="gocTest.go-72" name="gocTest.go-72"></a>
+<a id="gocTest.go-73" name="gocTest.go-73"></a><span class="kd">func</span><span class="w"> </span><span class="nx">compareCoverageFiles</span><span class="p">(</span><span class="nx">currentBranch</span><span class="p">,</span><span class="w"> </span><span class="nx">targetBranch</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="kt">error</span><span class="w"> </span><span class="p">{</span>
+<a id="gocTest.go-74" name="gocTest.go-74"></a><span class="w">	</span><span class="c1">// 读取当前分支和目标分支的覆盖率文件内容</span>
+<a id="gocTest.go-75" name="gocTest.go-75"></a><span class="hll"><span class="w">	</span><span class="nx">currentCoverage</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">ioutil</span><span class="p">.</span><span class="nx">ReadFile</span><span class="p">(</span><span class="s">&quot;coverage_&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">currentBranch</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;.out&quot;</span><span class="p">)</span>
+</span><a id="gocTest.go-76" name="gocTest.go-76"></a><span class="hll"><span class="w">	</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">currentCoverage</span><span class="p">)</span>
+</span><a id="gocTest.go-77" name="gocTest.go-77"></a><span class="hll"><span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+</span><a id="gocTest.go-78" name="gocTest.go-78"></a><span class="hll"><span class="w">		</span><span class="k">return</span><span class="w"> </span><span class="nx">err</span>
+</span><a id="gocTest.go-79" name="gocTest.go-79"></a><span class="w">	</span><span class="p">}</span>
+<a id="gocTest.go-80" name="gocTest.go-80"></a><span class="hll"><span class="w">	</span><span class="nx">targetCoverage</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">ioutil</span><span class="p">.</span><span class="nx">ReadFile</span><span class="p">(</span><span class="s">&quot;coverage_&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">targetBranch</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;.out&quot;</span><span class="p">)</span>
+</span><a id="gocTest.go-81" name="gocTest.go-81"></a><span class="hll"><span class="w">	</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">targetCoverage</span><span class="p">)</span>
+</span><a id="gocTest.go-82" name="gocTest.go-82"></a><span class="hll"><span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+</span><a id="gocTest.go-83" name="gocTest.go-83"></a><span class="hll"><span class="w">		</span><span class="k">return</span><span class="w"> </span><span class="nx">err</span>
+</span><a id="gocTest.go-84" name="gocTest.go-84"></a><span class="w">	</span><span class="p">}</span>
+<a id="gocTest.go-85" name="gocTest.go-85"></a>
+<a id="gocTest.go-86" name="gocTest.go-86"></a><span class="w">	</span><span class="c1">// 进行覆盖率对比</span>
+<a id="gocTest.go-87" name="gocTest.go-87"></a><span class="w">	</span><span class="c1">// TODO: 在这里执行自定义的覆盖率对比逻辑</span>
+</pre></div></td></tr></table></div>
+
+            <div class="snippet"><table class="snippettable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span></pre></div></td><td class="code"><div><pre><span></span><a id="gocTest.go-85" name="gocTest.go-85"></a>
+<a id="gocTest.go-86" name="gocTest.go-86"></a><span class="w">	</span><span class="c1">// 进行覆盖率对比</span>
+<a id="gocTest.go-87" name="gocTest.go-87"></a><span class="w">	</span><span class="c1">// TODO: 在这里执行自定义的覆盖率对比逻辑</span>
+<a id="gocTest.go-88" name="gocTest.go-88"></a>
+<a id="gocTest.go-89" name="gocTest.go-89"></a><span class="hll"><span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="kc">nil</span>
+</span><a id="gocTest.go-90" name="gocTest.go-90"></a><span class="p">}</span>
+<a id="gocTest.go-91" name="gocTest.go-91"></a>
+<a id="gocTest.go-92" name="gocTest.go-92"></a><span class="kd">func</span><span class="w"> </span><span class="nx">compareCoverage</span><span class="p">(</span><span class="nx">coverage1</span><span class="p">,</span><span class="w"> </span><span class="nx">coverage2</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="gocTest.go-93" name="gocTest.go-93"></a><span class="w">	</span><span class="c1">// 创建一个 map 来存储覆盖到的点</span>
+<a id="gocTest.go-94" name="gocTest.go-94"></a><span class="hll"><span class="w">	</span><span class="nx">coveredPoints</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span><span class="kt">bool</span><span class="p">)</span>
+</span><a id="gocTest.go-95" name="gocTest.go-95"></a>
+<a id="gocTest.go-96" name="gocTest.go-96"></a><span class="w">	</span><span class="c1">// 遍历 coverage1，将覆盖到的点添加到 map 中</span>
+<a id="gocTest.go-97" name="gocTest.go-97"></a><span class="hll"><span class="w">	</span><span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">point</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">coverage1</span><span class="w"> </span><span class="p">{</span>
+</span><a id="gocTest.go-98" name="gocTest.go-98"></a><span class="hll"><span class="w">		</span><span class="nx">coveredPoints</span><span class="p">[</span><span class="nx">point</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">true</span>
+</span><a id="gocTest.go-99" name="gocTest.go-99"></a><span class="w">	</span><span class="p">}</span>
+<a id="gocTest.go-100" name="gocTest.go-100"></a>
+<a id="gocTest.go-101" name="gocTest.go-101"></a><span class="w">	</span><span class="c1">// 创建两个 map 来存储相同覆盖和不同覆盖的点</span>
+<a id="gocTest.go-102" name="gocTest.go-102"></a><span class="hll"><span class="w">	</span><span class="nx">sameCoveragePoints</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span><span class="kt">bool</span><span class="p">)</span>
+</span><a id="gocTest.go-103" name="gocTest.go-103"></a><span class="hll"><span class="w">	</span><span class="nx">differentCoveragePoints</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span><span class="kt">bool</span><span class="p">)</span>
+</span><a id="gocTest.go-104" name="gocTest.go-104"></a>
+<a id="gocTest.go-105" name="gocTest.go-105"></a><span class="w">	</span><span class="c1">// 遍历 coverage2，检查每个点是否在 coverage1 中也存在</span>
+<a id="gocTest.go-106" name="gocTest.go-106"></a><span class="hll"><span class="w">	</span><span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">point</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">coverage2</span><span class="w"> </span><span class="p">{</span>
+</span><a id="gocTest.go-107" name="gocTest.go-107"></a><span class="hll"><span class="w">		</span><span class="k">if</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">exists</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">coveredPoints</span><span class="p">[</span><span class="nx">point</span><span class="p">];</span><span class="w"> </span><span class="nx">exists</span><span class="w"> </span><span class="p">{</span>
+</span><a id="gocTest.go-108" name="gocTest.go-108"></a><span class="hll"><span class="w">			</span><span class="nx">sameCoveragePoints</span><span class="p">[</span><span class="nx">point</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">true</span>
+</span><a id="gocTest.go-109" name="gocTest.go-109"></a><span class="w">		</span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="gocTest.go-110" name="gocTest.go-110"></a><span class="hll"><span class="w">			</span><span class="nx">differentCoveragePoints</span><span class="p">[</span><span class="nx">point</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">true</span>
+</span><a id="gocTest.go-111" name="gocTest.go-111"></a><span class="w">		</span><span class="p">}</span>
+<a id="gocTest.go-112" name="gocTest.go-112"></a><span class="w">	</span><span class="p">}</span>
+<a id="gocTest.go-113" name="gocTest.go-113"></a>
+<a id="gocTest.go-114" name="gocTest.go-114"></a><span class="w">	</span><span class="c1">// 输出结果</span>
+<a id="gocTest.go-115" name="gocTest.go-115"></a><span class="hll"><span class="w">	</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;相同覆盖的点：&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">sameCoveragePoints</span><span class="p">)</span>
+</span><a id="gocTest.go-116" name="gocTest.go-116"></a><span class="hll"><span class="w">	</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;不同覆盖的点：&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">differentCoveragePoints</span><span class="p">)</span>
+</span><a id="gocTest.go-117" name="gocTest.go-117"></a><span class="p">}</span>
+<a id="gocTest.go-118" name="gocTest.go-118"></a>
+<a id="gocTest.go-119" name="gocTest.go-119"></a><span class="kd">func</span><span class="w"> </span><span class="nx">main3</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="gocTest.go-120" name="gocTest.go-120"></a><span class="w">	</span><span class="c1">// 示例数据</span>
+<a id="gocTest.go-121" name="gocTest.go-121"></a><span class="hll"><span class="w">	</span><span class="nx">coverage1</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">}</span>
+</span><a id="gocTest.go-122" name="gocTest.go-122"></a><span class="hll"><span class="w">	</span><span class="nx">coverage2</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">}</span>
+</span><a id="gocTest.go-123" name="gocTest.go-123"></a>
+<a id="gocTest.go-124" name="gocTest.go-124"></a><span class="w">	</span><span class="c1">// 执行对比逻辑</span>
+<a id="gocTest.go-125" name="gocTest.go-125"></a><span class="hll"><span class="w">	</span><span class="nx">compareCoverage</span><span class="p">(</span><span class="nx">coverage1</span><span class="p">,</span><span class="w"> </span><span class="nx">coverage2</span><span class="p">)</span>
+</span><a id="gocTest.go-126" name="gocTest.go-126"></a><span class="p">}</span>
+<a id="gocTest.go-127" name="gocTest.go-127"></a>
+<a id="gocTest.go-128" name="gocTest.go-128"></a><span class="c1">//sudo curl -s https://api.github.com/repos/qiniu/goc/releases/latest | grep &quot;browser_download_url.*-darwin-amd64.tar.gz&quot; | cut -d : -f 2,3 | tr -d \&quot; | xargs -n 1 curl -L | tar -zx &amp;&amp; chmod +x goc &amp;&amp; mv goc /usr/local/bin</span>
+<a id="gocTest.go-129" name="gocTest.go-129"></a><span class="c1">//</span>
+</pre></div></td></tr></table></div>
+
+            </div>
+        </div>
+        <div class="src-snippet">
+            <div class="src-name">main.go</div>
+            <div class="snippets">
+            <div class="snippet"><table class="snippettable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span></pre></div></td><td class="code"><div><pre><span></span><a id="main.go-55" name="main.go-55"></a><span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="nx">randomNum</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="mi">70</span><span class="w"> </span><span class="p">{</span>
+<a id="main.go-56" name="main.go-56"></a><span class="w">		</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;进入模块1&quot;</span><span class="p">)</span>
+<a id="main.go-57" name="main.go-57"></a><span class="w">	</span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="main.go-58" name="main.go-58"></a><span class="w">		</span><span class="c1">// 模块2的执行概率为30%</span>
+<a id="main.go-59" name="main.go-59"></a><span class="hll"><span class="w">		</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;进入模块2&quot;</span><span class="p">)</span>
+</span><a id="main.go-60" name="main.go-60"></a><span class="w">	</span><span class="p">}</span>
+<a id="main.go-61" name="main.go-61"></a>
+<a id="main.go-62" name="main.go-62"></a><span class="w">	</span><span class="c1">// 模块1的执行概率为70%</span>
+<a id="main.go-63" name="main.go-63"></a><span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="nx">randomNum</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="mi">70</span><span class="w"> </span><span class="p">{</span>
+<a id="main.go-64" name="main.go-64"></a><span class="hll"><span class="w">		</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;进入模块1&quot;</span><span class="p">)</span>
+</span><a id="main.go-65" name="main.go-65"></a><span class="hll"><span class="w">	</span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+</span><a id="main.go-66" name="main.go-66"></a><span class="hll"><span class="w">		</span><span class="c1">// 模块2的执行概率为30%</span>
+</span><a id="main.go-67" name="main.go-67"></a><span class="w">		</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;进入模块2&quot;</span><span class="p">)</span>
+<a id="main.go-68" name="main.go-68"></a><span class="w">	</span><span class="p">}</span>
+<a id="main.go-69" name="main.go-69"></a>
+<a id="main.go-70" name="main.go-70"></a><span class="w">	</span><span class="c1">// 模块1的执行概率为70%</span>
+</pre></div></td></tr></table></div>
+
+            <div class="snippet"><table class="snippettable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span>
+<span class="normal">89</span>
+<span class="normal">90</span>
+<span class="normal">91</span>
+<span class="normal">92</span>
+<span class="normal">93</span>
+<span class="normal">94</span>
+<span class="normal">95</span></pre></div></td><td class="code"><div><pre><span></span><a id="main.go-78" name="main.go-78"></a><span class="w">	</span><span class="c1">// 模块1的执行概率为70%</span>
+<a id="main.go-79" name="main.go-79"></a><span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="nx">randomNum</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="mi">70</span><span class="w"> </span><span class="p">{</span>
+<a id="main.go-80" name="main.go-80"></a><span class="w">		</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;进入模块1&quot;</span><span class="p">)</span>
+<a id="main.go-81" name="main.go-81"></a><span class="w">	</span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="main.go-82" name="main.go-82"></a><span class="hll"><span class="w">		</span><span class="c1">// 模块2的执行概率为30%</span>
+</span><a id="main.go-83" name="main.go-83"></a><span class="hll"><span class="w">		</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;进入模块2&quot;</span><span class="p">)</span>
+</span><a id="main.go-84" name="main.go-84"></a><span class="hll"><span class="w">	</span><span class="p">}</span>
+</span><a id="main.go-85" name="main.go-85"></a><span class="hll">
+</span><a id="main.go-86" name="main.go-86"></a><span class="w">	</span><span class="c1">// 模块1的执行概率为70%</span>
+<a id="main.go-87" name="main.go-87"></a><span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="nx">randomNum</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="mi">70</span><span class="w"> </span><span class="p">{</span>
+<a id="main.go-88" name="main.go-88"></a><span class="w">		</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;进入模块1&quot;</span><span class="p">)</span>
+<a id="main.go-89" name="main.go-89"></a><span class="hll"><span class="w">	</span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+</span><a id="main.go-90" name="main.go-90"></a><span class="hll"><span class="w">		</span><span class="c1">// 模块2的执行概率为30%</span>
+</span><a id="main.go-91" name="main.go-91"></a><span class="hll"><span class="w">		</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;进入模块2&quot;</span><span class="p">)</span>
+</span><a id="main.go-92" name="main.go-92"></a><span class="w">	</span><span class="p">}</span>
+<a id="main.go-93" name="main.go-93"></a>
+<a id="main.go-94" name="main.go-94"></a><span class="w">	</span><span class="nx">nextRequestID</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="kd">func</span><span class="p">()</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="p">{</span>
+<a id="main.go-95" name="main.go-95"></a><span class="w">		</span><span class="k">return</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprintf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">time</span><span class="p">.</span><span class="nx">Now</span><span class="p">().</span><span class="nx">UnixNano</span><span class="p">())</span>
+</pre></div></td></tr></table></div>
+
+            </div>
+        </div>
+    </body>
+</html>

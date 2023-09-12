@@ -1,0 +1,510 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>simple-go-server: Go Coverage Report</title>
+		<style>
+			body {
+				background: black;
+				color: rgb(80, 80, 80);
+			}
+			body, pre, #legend span {
+				font-family: Menlo, monospace;
+				font-weight: bold;
+			}
+			#topbar {
+				background: black;
+				position: fixed;
+				top: 0; left: 0; right: 0;
+				height: 42px;
+				border-bottom: 1px solid rgb(80, 80, 80);
+			}
+			#content {
+				margin-top: 50px;
+			}
+			#nav, #legend {
+				float: left;
+				margin-left: 10px;
+			}
+			#legend {
+				margin-top: 12px;
+			}
+			#nav {
+				margin-top: 10px;
+			}
+			#legend span {
+				margin: 0 5px;
+			}
+			.cov0 { color: rgb(192, 0, 0) }
+.cov1 { color: rgb(128, 128, 128) }
+.cov2 { color: rgb(116, 140, 131) }
+.cov3 { color: rgb(104, 152, 134) }
+.cov4 { color: rgb(92, 164, 137) }
+.cov5 { color: rgb(80, 176, 140) }
+.cov6 { color: rgb(68, 188, 143) }
+.cov7 { color: rgb(56, 200, 146) }
+.cov8 { color: rgb(44, 212, 149) }
+.cov9 { color: rgb(32, 224, 152) }
+.cov10 { color: rgb(20, 236, 155) }
+
+		</style>
+	</head>
+	<body>
+		<div id="topbar">
+			<div id="nav">
+				<select id="files">
+				
+				<option value="file0">enricofoltran/simple-go-server/gocCz.go (0.0%)</option>
+				
+				<option value="file1">enricofoltran/simple-go-server/gocHtml.go (0.0%)</option>
+				
+				<option value="file2">enricofoltran/simple-go-server/gocTest.go (0.0%)</option>
+				
+				<option value="file3">enricofoltran/simple-go-server/main.go (56.5%)</option>
+				
+				</select>
+			</div>
+			<div id="legend">
+				<span>not tracked</span>
+			
+				<span class="cov0">no coverage</span>
+				<span class="cov1">low coverage</span>
+				<span class="cov2">*</span>
+				<span class="cov3">*</span>
+				<span class="cov4">*</span>
+				<span class="cov5">*</span>
+				<span class="cov6">*</span>
+				<span class="cov7">*</span>
+				<span class="cov8">*</span>
+				<span class="cov9">*</span>
+				<span class="cov10">high coverage</span>
+			
+			</div>
+		</div>
+		<div id="content">
+		
+		<pre class="file" id="file0" style="display: none">package main
+
+import (
+        "fmt"
+        "math/rand"
+        "time"
+)
+
+func main7() <span class="cov0" title="0">{
+        rand.Seed(time.Now().UnixNano())
+
+        // 生成一个0到99之间的随机数
+        randomNum := rand.Intn(100)
+
+        // 模块1的执行概率为70%
+        if randomNum &lt; 70 </span><span class="cov0" title="0">{
+                fmt.Println("进入模块1")
+        }</span> else<span class="cov0" title="0"> {
+                // 模块2的执行概率为30%
+                fmt.Println("进入模块2")
+        }</span>
+
+        // 模块3的执行概率为50%
+        <span class="cov0" title="0">if randomNum &lt; 50 </span><span class="cov0" title="0">{
+                fmt.Println("进入模块3")
+                fmt.Println("进入模块3")
+                fmt.Println("进入模块3")
+        }</span> else<span class="cov0" title="0"> {
+                // 模块4的执行概率为50%
+                fmt.Println("进入模块4")
+                fmt.Println("进入模块4")
+                fmt.Println("进入模块4")
+                fmt.Println("进入模块4")
+        }</span>
+        // 模块5的执行概率为80%
+        <span class="cov0" title="0">if randomNum &lt; 80 </span><span class="cov0" title="0">{
+                fmt.Println("进入模块5")
+                fmt.Println("进入模块5")
+                fmt.Println("进入模块5")
+                fmt.Println("进入模块5")
+        }</span> else<span class="cov0" title="0"> {
+                // 模块6的执行概率为20%
+                fmt.Println("进入模块6")
+                fmt.Println("进入模块6")
+                fmt.Println("进入模块6")
+                fmt.Println("进入模块6")
+        }</span>
+}
+</pre>
+		
+		<pre class="file" id="file1" style="display: none">package main
+
+import (
+        "log"
+        "os"
+        "os/exec"
+        "path/filepath"
+)
+
+func main() {<span class="cov0" title="0">
+        // 获取当前工作目录
+        wd, err := os.Getwd()
+        if err != nil </span><span class="cov0" title="0">{
+                log.Fatal(err)
+        }</span>
+
+        // 定义输入和输出文件名
+        <span class="cov0" title="0">inFile := filepath.Join(wd, "coveragenew.out")
+        outFile := filepath.Join(wd, "coveragenew.html")
+
+        // 执行转换命令
+        cmd := exec.Command("go", "tool", "cover", "-html="+inFile, "-o="+outFile)
+        err = cmd.Run()
+        if err != nil </span><span class="cov0" title="0">{
+                log.Fatal(err)
+        }</span>
+
+        <span class="cov0" title="0">log.Printf("转换完成！已生成文件：%s\n", outFile)</span>
+}
+</pre>
+		
+		<pre class="file" id="file2" style="display: none">package main
+
+import (
+        "fmt"
+        "io/ioutil"
+        "os"
+        "os/exec"
+        "strings"
+)
+
+func main4() <span class="cov0" title="0">{
+        // 获取当前分支和目标分支
+        currentBranch, err := getCurrentBranch()
+        if err != nil </span><span class="cov0" title="0">{
+                fmt.Println("Failed to get current branch:", err)
+                os.Exit(1)
+        }</span>
+        <span class="cov0" title="0">targetBranch := "master" // 设置目标分支
+
+        // 获取当前分支和目标分支之间的代码差异
+        diffCmd := exec.Command("git", "diff", "--name-only", targetBranch)
+        diffOutput, err := diffCmd.Output()
+        fmt.Println(diffOutput)
+        if err != nil </span><span class="cov0" title="0">{
+                fmt.Println("Failed to get diff:", err)
+                os.Exit(1)
+        }</span>
+
+        // 运行当前分支的测试并生成测试覆盖率文件
+        <span class="cov0" title="0">err = runTestsAndGenerateCoverage(currentBranch)
+        if err != nil </span><span class="cov0" title="0">{
+                fmt.Println("Failed to generate coverage for current branch:", err)
+                os.Exit(1)
+        }</span>
+
+        // 运行目标分支的测试并生成测试覆盖率文件
+        <span class="cov0" title="0">err = runTestsAndGenerateCoverage(targetBranch)
+        if err != nil </span><span class="cov0" title="0">{
+                fmt.Println("Failed to generate coverage for target branch:", err)
+                os.Exit(1)
+        }</span>
+
+        // 对比两个覆盖率文件
+        <span class="cov0" title="0">err = compareCoverageFiles(currentBranch, targetBranch)
+        if err != nil </span><span class="cov0" title="0">{
+                fmt.Println("Failed to compare coverage files:", err)
+                os.Exit(1)
+        }</span>
+
+        <span class="cov0" title="0">fmt.Println("Coverage comparison generated.")</span>
+}
+
+func getCurrentBranch() (string, error) <span class="cov0" title="0">{
+        cmd := exec.Command("git", "symbolic-ref", "--short", "HEAD")
+        output, err := cmd.Output()
+        if err != nil </span><span class="cov0" title="0">{
+                return "", err
+        }</span>
+        <span class="cov0" title="0">branch := strings.TrimSpace(string(output))
+        return branch, nil</span>
+}
+
+func runTestsAndGenerateCoverage(branch string) error <span class="cov0" title="0">{
+        // 运行测试并生成测试覆盖率文件
+        cmd := exec.Command("go", "test", "-coverprofile=coverage_"+branch+".out")
+        err := cmd.Run()
+        if err != nil </span><span class="cov0" title="0">{
+                return err
+        }</span>
+        <span class="cov0" title="0">return nil</span>
+}
+
+func compareCoverageFiles(currentBranch, targetBranch string) error <span class="cov0" title="0">{
+        // 读取当前分支和目标分支的覆盖率文件内容
+        currentCoverage, err := ioutil.ReadFile("coverage_" + currentBranch + ".out")
+        fmt.Println(currentCoverage)
+        if err != nil </span><span class="cov0" title="0">{
+                return err
+        }</span>
+        <span class="cov0" title="0">targetCoverage, err := ioutil.ReadFile("coverage_" + targetBranch + ".out")
+        fmt.Println(targetCoverage)
+        if err != nil </span><span class="cov0" title="0">{
+                return err
+        }</span>
+
+        // 进行覆盖率对比
+        // TODO: 在这里执行自定义的覆盖率对比逻辑
+
+        <span class="cov0" title="0">return nil</span>
+}
+
+func compareCoverage(coverage1, coverage2 []int) <span class="cov0" title="0">{
+        // 创建一个 map 来存储覆盖到的点
+        coveredPoints := make(map[int]bool)
+
+        // 遍历 coverage1，将覆盖到的点添加到 map 中
+        for _, point := range coverage1 </span><span class="cov0" title="0">{
+                coveredPoints[point] = true
+        }</span>
+
+        // 创建两个 map 来存储相同覆盖和不同覆盖的点
+        <span class="cov0" title="0">sameCoveragePoints := make(map[int]bool)
+        differentCoveragePoints := make(map[int]bool)
+
+        // 遍历 coverage2，检查每个点是否在 coverage1 中也存在
+        for _, point := range coverage2 </span><span class="cov0" title="0">{
+                if _, exists := coveredPoints[point]; exists </span><span class="cov0" title="0">{
+                        sameCoveragePoints[point] = true
+                }</span> else<span class="cov0" title="0"> {
+                        differentCoveragePoints[point] = true
+                }</span>
+        }
+
+        // 输出结果
+        <span class="cov0" title="0">fmt.Println("相同覆盖的点：", sameCoveragePoints)
+        fmt.Println("不同覆盖的点：", differentCoveragePoints)</span>
+}
+
+func main3() <span class="cov0" title="0">{
+        // 示例数据
+        coverage1 := []int{1, 2, 3, 4, 5}
+        coverage2 := []int{3, 4, 5, 6, 7}
+
+        // 执行对比逻辑
+        compareCoverage(coverage1, coverage2)
+}</span>
+
+//sudo curl -s https://api.github.com/repos/qiniu/goc/releases/latest | grep "browser_download_url.*-darwin-amd64.tar.gz" | cut -d : -f 2,3 | tr -d \" | xargs -n 1 curl -L | tar -zx &amp;&amp; chmod +x goc &amp;&amp; mv goc /usr/local/bin
+//
+</pre>
+		
+		<pre class="file" id="file3" style="display: none">package main
+
+import (
+        "context"
+        "flag"
+        "fmt"
+        "log"
+        "math/rand"
+        "net/http"
+        "os"
+        "os/signal"
+        "sync/atomic"
+        "time"
+)
+
+type key int
+
+const (
+        requestIDKey key = 0
+)
+
+var (
+        Version      string = ""
+        GitTag       string = ""
+        GitCommit    string = ""
+        GitTreeState string = ""
+        listenAddr   string
+        healthy      int32
+)
+
+func main1()<span class="cov8" title="1"> {
+        flag.StringVar(&amp;listenAddr, "listen-addr", ":5000", "server listen address")
+        flag.Parse()
+
+        logger := log.New(os.Stdout, "http: ", log.LstdFlags)
+
+        logger.Println("Simple go server")
+        logger.Println("Version:", Version)
+        logger.Println("GitTag:", GitTag)
+        logger.Println("GitCommit:", GitCommit)
+        logger.Println("GitTreeState:", GitTreeState)
+
+        logger.Println("Server is starting...")
+
+        router := http.NewServeMux()
+        router.Handle("/", index())
+        router.Handle("/healthz", healthz())
+
+        rand.Seed(time.Now().UnixNano())
+
+        // 生成一个0到99之间的随机数
+        randomNum := rand.Intn(100)
+
+        // 模块1的执行概率为70%
+        if randomNum &lt; 70 </span><span class="cov8" title="1">{
+                fmt.Println("进入模块1")
+        }</span> else<span class="cov0" title="0"> {
+                // 模块2的执行概率为30%
+                fmt.Println("进入模块2")
+        }</span>
+
+        // 模块3的执行概率为50%
+        <span class="cov8" title="1">if randomNum &lt; 50 </span><span class="cov0" title="0">{
+                fmt.Println("进入模块3")
+                fmt.Println("进入模块3")
+                fmt.Println("进入模块3")
+        }</span> else<span class="cov8" title="1"> {
+                // 模块4的执行概率为50%
+                fmt.Println("进入模块4")
+                fmt.Println("进入模块4")
+                fmt.Println("进入模块4")
+                fmt.Println("进入模块4")
+        }</span>
+        // 模块5的执行概率为80%
+        <span class="cov8" title="1">if randomNum &lt; 80 </span><span class="cov8" title="1">{
+                fmt.Println("进入模块5")
+                fmt.Println("进入模块5")
+                fmt.Println("进入模块5")
+                fmt.Println("进入模块5")
+        }</span> else<span class="cov0" title="0"> {
+                // 模块6的执行概率为20%
+                fmt.Println("进入模块6")
+                fmt.Println("进入模块6")
+                fmt.Println("进入模块6")
+                fmt.Println("进入模块6")
+        }</span>
+
+        <span class="cov8" title="1">nextRequestID := func() string </span><span class="cov0" title="0">{
+                return fmt.Sprintf("%d", time.Now().UnixNano())
+        }</span>
+
+        <span class="cov8" title="1">server := &amp;http.Server{
+                Addr:         listenAddr,
+                Handler:      tracing(nextRequestID)(logging(logger)(router)),
+                ErrorLog:     logger,
+                ReadTimeout:  5 * time.Second,
+                WriteTimeout: 10 * time.Second,
+                IdleTimeout:  15 * time.Second,
+        }
+
+        done := make(chan bool)
+        quit := make(chan os.Signal, 1)
+        signal.Notify(quit, os.Interrupt)
+
+        go func() </span><span class="cov8" title="1">{
+                &lt;-quit
+                logger.Println("Server is shutting down...")
+                atomic.StoreInt32(&amp;healthy, 0)
+
+                ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
+                defer cancel()
+
+                server.SetKeepAlivesEnabled(false)
+                if err := server.Shutdown(ctx); err != nil </span><span class="cov0" title="0">{
+                        logger.Fatalf("Could not gracefully shutdown the server: %v\n", err)
+                }</span>
+                <span class="cov0" title="0">close(done)</span>
+        }()
+
+        <span class="cov8" title="1">logger.Println("Server is ready to handle requests at", listenAddr)
+        atomic.StoreInt32(&amp;healthy, 1)
+        if err := server.ListenAndServe(); err != nil &amp;&amp; err != http.ErrServerClosed </span><span class="cov0" title="0">{
+                logger.Fatalf("Could not listen on %s: %v\n", listenAddr, err)
+        }</span>
+
+        <span class="cov0" title="0">&lt;-done
+        logger.Println("Server stopped")</span>
+}
+
+func index() http.Handler <span class="cov8" title="1">{
+        return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) </span><span class="cov0" title="0">{
+                if r.URL.Path != "/" </span><span class="cov0" title="0">{
+                        http.Error(w, http.StatusText(http.StatusNotFound), http.StatusNotFound)
+                        return
+                }</span>
+                <span class="cov0" title="0">w.Header().Set("Content-Type", "text/plain; charset=utf-8")
+                w.Header().Set("X-Content-Type-Options", "nosniff")
+                w.WriteHeader(http.StatusOK)
+                fmt.Fprintln(w, "Hello, World!")</span>
+        })
+}
+
+func healthz() http.Handler <span class="cov8" title="1">{
+        return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) </span><span class="cov0" title="0">{
+                if atomic.LoadInt32(&amp;healthy) == 1 </span><span class="cov0" title="0">{
+                        w.WriteHeader(http.StatusNoContent)
+                        return
+                }</span>
+                <span class="cov0" title="0">w.WriteHeader(http.StatusServiceUnavailable)</span>
+        })
+}
+
+func logging(logger *log.Logger) func(http.Handler) http.Handler <span class="cov8" title="1">{
+        return func(next http.Handler) http.Handler </span><span class="cov8" title="1">{
+                return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) </span><span class="cov0" title="0">{
+                        defer func() </span><span class="cov0" title="0">{
+                                requestID, ok := r.Context().Value(requestIDKey).(string)
+                                if !ok </span><span class="cov0" title="0">{
+                                        requestID = "unknown"
+                                }</span>
+                                <span class="cov0" title="0">logger.Println(requestID, r.Method, r.URL.Path, r.RemoteAddr, r.UserAgent())</span>
+                        }()
+                        <span class="cov0" title="0">next.ServeHTTP(w, r)</span>
+                })
+        }
+}
+
+func tracing(nextRequestID func() string) func(http.Handler) http.Handler <span class="cov8" title="1">{
+        return func(next http.Handler) http.Handler </span><span class="cov8" title="1">{
+                return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) </span><span class="cov0" title="0">{
+                        requestID := r.Header.Get("X-Request-Id")
+                        if requestID == "" </span><span class="cov0" title="0">{
+                                requestID = nextRequestID()
+                        }</span>
+                        <span class="cov0" title="0">ctx := context.WithValue(r.Context(), requestIDKey, requestID)
+                        w.Header().Set("X-Request-Id", requestID)
+                        next.ServeHTTP(w, r.WithContext(ctx))</span>
+                })
+        }
+}
+</pre>
+		
+		</div>
+	</body>
+	<script>
+	(function() {
+		var files = document.getElementById('files');
+		var visible;
+		files.addEventListener('change', onChange, false);
+		function select(part) {
+			if (visible)
+				visible.style.display = 'none';
+			visible = document.getElementById(part);
+			if (!visible)
+				return;
+			files.value = part;
+			visible.style.display = 'block';
+			location.hash = part;
+		}
+		function onChange() {
+			select(files.value);
+			window.scrollTo(0, 0);
+		}
+		if (location.hash != "") {
+			select(location.hash.substr(1));
+		}
+		if (!visible) {
+			select("file0");
+		}
+	})();
+	</script>
+</html>
